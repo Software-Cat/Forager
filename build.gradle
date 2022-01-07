@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'io.github.softwarecat'
-version = '0.1.0'
+version = '1.18.1-0.1.0'
 
 java {
     archivesBaseName = 'forager'
