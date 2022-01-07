@@ -14,8 +14,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.util;
-
-public class RegistryHandler {
-
-}
+package io.github.softwarecat.forager.data.client;

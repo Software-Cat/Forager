@@ -16,7 +16,7 @@
 
 package io.github.softwarecat.forager;
 
-import net.minecraft.world.level.block.Blocks;
+import io.github.softwarecat.forager.registries.Registration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -27,16 +27,22 @@ import org.apache.logging.log4j.Logger;
 @Mod("forager")
 public class Forager {
 
+    public static final String MOD_ID = "forager";
+
     private static final Logger LOGGER = LogManager.getLogger();
 
     public Forager() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        Registration.register();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+    }
+
+    private void doClientStuff(final FMLCommonSetupEvent event) {
     }
 }
