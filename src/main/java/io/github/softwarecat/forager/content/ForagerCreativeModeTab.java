@@ -14,4 +14,20 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.data;
+package io.github.softwarecat.forager.content;
+
+import io.github.softwarecat.forager.AllItems;
+import io.github.softwarecat.forager.foundation.item.ForagerCreativeModeTabBase;
+import net.minecraft.world.item.ItemStack;
+
+public class ForagerCreativeModeTab extends ForagerCreativeModeTabBase {
+
+    public ForagerCreativeModeTab() {
+        super("base");
+    }
+
+    @Override
+    public ItemStack makeIcon() {
+        return AllItems.RUBY.asStack();
+    }
+}

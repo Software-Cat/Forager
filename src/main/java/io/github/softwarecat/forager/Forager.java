@@ -16,33 +16,61 @@
 
 package io.github.softwarecat.forager;
 
-import io.github.softwarecat.forager.registries.Registration;
+import com.tterrag.registrate.util.NonNullLazyValue;
+import io.github.softwarecat.forager.content.ForagerCreativeModeTab;
+import io.github.softwarecat.forager.foundation.data.ForagerRegistrate;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod("forager")
+@Mod(Forager.ID)
 public class Forager {
 
-    public static final String MOD_ID = "forager";
+    public static final String ID = "forager";
+    public static final String NAME = "Forager";
+
+    public static final CreativeModeTab TAB_FORAGER = new ForagerCreativeModeTab();
 
     private static final Logger LOGGER = LogManager.getLogger();
 
+    private static final NonNullLazyValue<ForagerRegistrate> REGISTRATE = ForagerRegistrate.lazy(ID);
+
     public Forager() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
-        Registration.register();
-
-        MinecraftForge.EVENT_BUS.register(this);
+        onCtor();
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+    public static void onCtor() {
+        AllItems.register();
+        AllBlocks.register();
+
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
+
+        modEventBus.addListener(Forager::init);
+        modEventBus.addListener(EventPriority.LOWEST, Forager::gatherData);
     }
 
-    private void doClientStuff(final FMLCommonSetupEvent event) {
+    public static void init(final FMLCommonSetupEvent event) {
+    }
+
+    public static void gatherData(GatherDataEvent event) {
+        DataGenerator gen = event.getGenerator();
+    }
+
+    public static ForagerRegistrate getRegistrate() {
+        return REGISTRATE.get();
+    }
+
+    public static ResourceLocation asResource(String path) {
+        return new ResourceLocation(ID, path);
     }
 }

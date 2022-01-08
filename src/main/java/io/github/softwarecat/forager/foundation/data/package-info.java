@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.data.client;
+package io.github.softwarecat.forager.foundation.data;

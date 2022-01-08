@@ -14,4 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.registries;
+package io.github.softwarecat.forager.foundation.item;
+
+import io.github.softwarecat.forager.Forager;
+import net.minecraft.world.item.CreativeModeTab;
+
+public abstract class ForagerCreativeModeTabBase extends CreativeModeTab {
+
+    public ForagerCreativeModeTabBase(String label) {
+        super(getGroupCountSafe(), Forager.ID + "." + label);
+    }
+}

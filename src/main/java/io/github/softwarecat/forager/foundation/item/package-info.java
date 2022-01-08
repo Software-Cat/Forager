@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.world.item;
+package io.github.softwarecat.forager.foundation.item;

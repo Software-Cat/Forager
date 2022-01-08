@@ -1,3 +1,4 @@
+
 /*
  * Copyright © 2022 Bowen Wu
  *
@@ -14,17 +15,4 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.registries;
-
-import io.github.softwarecat.forager.world.item.Ruby;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
-
-public class ModItems {
-
-    public static final RegistryObject<Item> RUBY = Registration.ITEMS.register("ruby", Ruby::new);
-
-    public static void register() {
-
-    }
-}
+package io.github.softwarecat.forager.content;

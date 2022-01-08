@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "forager:block/ruby_block"
+    }
+  }
+}

@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package io.github.softwarecat.forager.world.item;
+package io.github.softwarecat.forager.content;
 
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-
-public class Ruby extends Item {
-
-    public Ruby() {
-        super(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS));
-    }
+public enum AllSections {
+    MATERIALS,
+    UNASSIGNED,
+    PALETTES
 }
